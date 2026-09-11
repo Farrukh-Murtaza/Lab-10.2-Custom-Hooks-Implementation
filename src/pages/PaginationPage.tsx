@@ -1,11 +1,13 @@
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 import { useState, useMemo, useRef, useLayoutEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Generate dummy items
 const ALL_ITEMS = Array.from({ length: 123 }, (_, i) => `Item ${i + 1}`);
 
 
 function PaginationPage() {
+    const navigate = useNavigate();
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -70,8 +72,16 @@ function PaginationPage() {
             <div className="w-full max-w-3xl">
                 <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/60 overflow-hidden">
 
-                    <div className="px-6 py-5 border-b border-slate-100 bg-linear-to-r from-slate-50 to-white">
-                        <div className="flex items-center justify-between flex-wrap gap-3">
+                    <div className="flex gap-5 items-center pl-4 pr-6 py-5 border-b border-slate-100 bg-linear-to-r from-slate-50 to-white">
+                        <button
+                            onClick={() => navigate('/')}
+                            className="p-2 w-11 h-11 shadow-2xl flex justify-center items-center border-border border hover:bg-muted transition-colors bg-white rounded-full "
+                        >
+                            <ArrowLeft size={20} className="text-muted-white" />
+                        </button>
+
+
+                        <div className="flex flex-1 items-center justify-between flex-wrap gap-3">
                             <div>
                                 <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
                                     Pagination Demo

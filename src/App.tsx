@@ -1,10 +1,10 @@
+import PaginationPage from "./PaginationPage";
+
 function App() {
 
   return (
-    <>
-      <h1 className='bg-red-400 text-2xl'>Hello World</h1>
-    </>
-  )
+    <PaginationPage />
+  );
 }
 
-export default App
+export default App;
